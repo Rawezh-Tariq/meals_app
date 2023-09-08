@@ -5,6 +5,23 @@ class DrawerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer();
+    return Drawer(
+      child: ListView(
+        children: [
+          const DrawerHeader(
+            child: Text('My Drawer'),
+          ),
+          ListTile(
+            title: const Text('Item 1'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          const ListTile(
+            title: Text('Item 2'),
+          ),
+        ],
+      ),
+    );
   }
 }
