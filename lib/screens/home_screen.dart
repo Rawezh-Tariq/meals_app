@@ -5,20 +5,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Text('Category'),
-        Row(),
-        SizedBox(height: 10),
-        Text('Category'),
-        Row(),
-        SizedBox(height: 10),
-        Text('Category'),
-        Row(),
-        SizedBox(height: 10),
-        Text('Category'),
-        Row(),
-        SizedBox(height: 10),
+        Text('Category', style: Theme.of(context).textTheme.titleLarge),
+        const Row(),
+        const SizedBox(height: 10),
+        Text('Category', style: Theme.of(context).textTheme.titleMedium),
+        const Row(),
+        const SizedBox(height: 10),
+        Text('Category', style: Theme.of(context).textTheme.titleSmall),
+        const Row(),
+        const SizedBox(height: 10),
+        Text('Category', style: Theme.of(context).textTheme.titleLarge),
+        const Row(),
+        const SizedBox(height: 10),
       ],
     );
   }

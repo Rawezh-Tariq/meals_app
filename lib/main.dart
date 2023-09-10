@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 import 'package:meals_app/screens/drawer_screen.dart';
 import 'package:meals_app/screens/home_screen.dart';
+import 'package:meals_app/tools/theme.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: App(),
+      theme: myDarkTheme,
+      home: const App(),
     ),
   );
 }
@@ -20,11 +22,17 @@ class App extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('welcome'),
+        title: Text(
+          'welcome',
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(color: Colors.black),
+        ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.sunny),
+            icon: Icon(Icons.sunny, color: Theme.of(context).iconTheme.color),
           ),
         ],
       ),

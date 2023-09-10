@@ -8,17 +8,20 @@ class DrawerScreen extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          const DrawerHeader(
-            child: Text('My Drawer'),
+          DrawerHeader(
+            child: Text('My Drawer',
+                style: Theme.of(context).textTheme.titleLarge),
           ),
           ListTile(
-            title: const Text('Item 1'),
+            title:
+                Text('Item 1', style: Theme.of(context).textTheme.titleSmall),
             onTap: () {
               Navigator.pop(context);
             },
           ),
-          const ListTile(
-            title: Text('Item 2'),
+          ListTile(
+            title:
+                Text('Item 2', style: Theme.of(context).textTheme.titleSmall),
           ),
         ],
       ),
