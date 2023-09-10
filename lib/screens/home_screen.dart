@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Category', style: Theme.of(context).textTheme.titleLarge),
+        Text('Category', style: Theme.of(context).textTheme.titleMedium),
         const Row(),
         const SizedBox(height: 10),
         Text('Category', style: Theme.of(context).textTheme.titleMedium),
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         Text('Category', style: Theme.of(context).textTheme.titleSmall),
         const Row(),
         const SizedBox(height: 10),
-        Text('Category', style: Theme.of(context).textTheme.titleLarge),
+        Text('Category', style: Theme.of(context).textTheme.titleMedium),
         const Row(),
         const SizedBox(height: 10),
       ],

@@ -6,39 +6,52 @@ import 'package:meals_app/tools/theme.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: myDarkTheme,
-      home: const App(),
-    ),
+    const App(),
   );
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
 
   @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  ThemeData curentTheme = myLightTheme;
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'welcome',
-          style: Theme.of(context)
-              .textTheme
-              .titleLarge!
-              .copyWith(color: Colors.black),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.sunny, color: Theme.of(context).iconTheme.color),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: curentTheme,
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            'welcome',
+            style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
-        ],
+          actions: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  if (curentTheme == myLightTheme) {
+                    curentTheme = myDarkTheme;
+                  } else {
+                    curentTheme = myLightTheme;
+                  }
+                });
+              },
+              icon: const Icon(
+                Icons.sunny,
+              ),
+            ),
+          ],
+        ),
+        drawer: const DrawerScreen(),
+        body: const HomeScreen(),
+        bottomNavigationBar: const BottomNavigatorScreen(),
       ),
-      drawer: const DrawerScreen(),
-      body: const HomeScreen(),
-      bottomNavigationBar: const BottomNavigatorScreen(),
     );
   }
 }
