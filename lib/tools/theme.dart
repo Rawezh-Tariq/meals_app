@@ -10,7 +10,7 @@ ThemeData myDarkTheme = ThemeData(
     onSecondary: Colors.white,
     error: Colors.red,
     onError: Colors.white,
-    background: Colors.black12,
+    background: Colors.black,
     onBackground: Colors.orange,
     surface: Colors.orange,
     onSurface: Colors.black,
@@ -30,10 +30,15 @@ ThemeData myDarkTheme = ThemeData(
     ),
   ),
   drawerTheme: const DrawerThemeData(
-    backgroundColor: Colors.black12,
+    backgroundColor: Colors.black,
   ),
-  iconTheme: const IconThemeData(
-    color: Colors.black,
+  appBarTheme: const AppBarTheme(
+    actionsIconTheme: IconThemeData(color: Colors.black),
+    titleTextStyle: TextStyle(
+      color: Colors.black,
+      fontSize: 50,
+    ),
+    centerTitle: true,
   ),
 );
 
@@ -55,7 +60,7 @@ ThemeData myLightTheme = ThemeData(
   textTheme: const TextTheme(
     titleLarge: TextStyle(
       fontSize: 50,
-      color: Colors.white,
+      color: Colors.black,
     ),
     titleMedium: TextStyle(
       fontSize: 26,
@@ -69,14 +74,11 @@ ThemeData myLightTheme = ThemeData(
   drawerTheme: const DrawerThemeData(
     backgroundColor: Colors.white,
   ),
-  iconTheme: const IconThemeData(
-    color: Colors.white,
-    size: 34,
-  ),
   appBarTheme: const AppBarTheme(
     titleTextStyle: TextStyle(
       color: Colors.white,
       fontSize: 50,
     ),
+    centerTitle: true,
   ),
 );
