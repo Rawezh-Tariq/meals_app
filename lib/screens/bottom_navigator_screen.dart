@@ -6,6 +6,9 @@ class BottomNavigatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: curentTheme.bottomNavigationBarTheme.backgroundColor,
+      unselectedItemColor:
+          curentTheme.bottomNavigationBarTheme.unselectedItemColor,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),

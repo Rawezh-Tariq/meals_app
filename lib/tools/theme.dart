@@ -40,6 +40,11 @@ ThemeData myDarkTheme = ThemeData(
     ),
     centerTitle: true,
   ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: Colors.black,
+    unselectedItemColor: Colors.orange,
+    selectedItemColor: Colors.deepOrangeAccent,
+  ),
 );
 
 ThemeData myLightTheme = ThemeData(
@@ -80,5 +85,10 @@ ThemeData myLightTheme = ThemeData(
       fontSize: 50,
     ),
     centerTitle: true,
+  ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: Colors.white,
+    unselectedItemColor: Colors.orange,
+    selectedItemColor: Colors.deepOrangeAccent,
   ),
 );
