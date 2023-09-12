@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData myDarkTheme = ThemeData(
   useMaterial3: true,
@@ -15,16 +16,16 @@ ThemeData myDarkTheme = ThemeData(
     surface: Colors.orange,
     onSurface: Colors.black,
   ),
-  textTheme: const TextTheme(
-    titleLarge: TextStyle(
+  textTheme: TextTheme(
+    titleLarge: GoogleFonts.lobster(
       fontSize: 50,
       color: Colors.white,
     ),
-    titleMedium: TextStyle(
+    titleMedium: GoogleFonts.lobster(
       fontSize: 26,
       color: Colors.white,
     ),
-    titleSmall: TextStyle(
+    titleSmall: GoogleFonts.lobster(
       fontSize: 18,
       color: Colors.white,
     ),
@@ -32,9 +33,9 @@ ThemeData myDarkTheme = ThemeData(
   drawerTheme: const DrawerThemeData(
     backgroundColor: Colors.black,
   ),
-  appBarTheme: const AppBarTheme(
-    actionsIconTheme: IconThemeData(color: Colors.black),
-    titleTextStyle: TextStyle(
+  appBarTheme: AppBarTheme(
+    actionsIconTheme: const IconThemeData(color: Colors.black),
+    titleTextStyle: GoogleFonts.lobster(
       color: Colors.black,
       fontSize: 50,
     ),
@@ -62,16 +63,16 @@ ThemeData myLightTheme = ThemeData(
     surface: Colors.orange,
     onSurface: Colors.white,
   ),
-  textTheme: const TextTheme(
-    titleLarge: TextStyle(
+  textTheme: TextTheme(
+    titleLarge: GoogleFonts.lobster(
       fontSize: 50,
       color: Colors.black,
     ),
-    titleMedium: TextStyle(
+    titleMedium: GoogleFonts.lobster(
       fontSize: 26,
       color: Colors.black,
     ),
-    titleSmall: TextStyle(
+    titleSmall: GoogleFonts.lobster(
       fontSize: 18,
       color: Colors.black,
     ),
@@ -79,8 +80,8 @@ ThemeData myLightTheme = ThemeData(
   drawerTheme: const DrawerThemeData(
     backgroundColor: Colors.white,
   ),
-  appBarTheme: const AppBarTheme(
-    titleTextStyle: TextStyle(
+  appBarTheme: AppBarTheme(
+    titleTextStyle: GoogleFonts.lobster(
       color: Colors.white,
       fontSize: 50,
     ),
