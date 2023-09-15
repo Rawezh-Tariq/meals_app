@@ -25,14 +25,14 @@ List<Items> myItems = [
     Categories.meet,
   ),
   Items(
-    'pitza',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
-    Categories.fastfood,
-  ),
-  Items(
     'water',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
     Categories.drinks,
+  ),
+  Items(
+    'pitza',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
+    Categories.fastfood,
   ),
   Items(
     'milk',

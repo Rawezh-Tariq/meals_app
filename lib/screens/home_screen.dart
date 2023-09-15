@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 import 'package:meals_app/screens/drawer_screen.dart';
-import 'package:meals_app/screens/item_screen.dart';
+import 'package:meals_app/screens/items_screen.dart';
 import 'package:meals_app/tools/theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       backgroundColor: curentTheme.colorScheme.background,
       drawer: DrawerScreen(curentTheme: curentTheme),
-      body: ItemScreen(curentTheme: curentTheme),
+      body: ItemsScreen(curentTheme: curentTheme),
       bottomNavigationBar: BottomNavigatorScreen(curentTheme: curentTheme),
     );
   }
