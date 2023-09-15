@@ -20,23 +20,43 @@ List<Items> myItems = [
     Categories.fastfood,
   ),
   Items(
-    'hambergr',
+    'chickn',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
+    Categories.meet,
+  ),
+  Items(
+    'pitza',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
     Categories.fastfood,
   ),
   Items(
-    'hambergr',
+    'water',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
-    Categories.fastfood,
+    Categories.drinks,
   ),
   Items(
-    'hambergr',
+    'milk',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
-    Categories.fastfood,
+    Categories.drinks,
   ),
   Items(
-    'hambergr',
+    'cake',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
-    Categories.fastfood,
+    Categories.swets,
+  ),
+  Items(
+    'salad',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
+    Categories.vegtable,
+  ),
+  Items(
+    'jgar',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
+    Categories.meet,
+  ),
+  Items(
+    'trshyat',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgPeNPCI--cVJw44hPzLYMGzANcokDTexNw&usqp=CAU',
+    Categories.vegtable,
   ),
 ];
