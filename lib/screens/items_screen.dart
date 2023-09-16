@@ -46,8 +46,12 @@ class ItemsScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => ItemScreen(
-                                    name: myFilteredItems[index].name,
-                                    image: myFilteredItems[index].image),
+                                  curentTheme: curentTheme,
+                                  name: myFilteredItems[index].name,
+                                  image: myFilteredItems[index].image,
+                                  descreption:
+                                      myFilteredItems[index].descreption,
+                                ),
                               ),
                             );
                           },
