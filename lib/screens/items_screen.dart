@@ -49,8 +49,12 @@ class ItemsScreen extends StatelessWidget {
                                   curentTheme: curentTheme,
                                   name: myFilteredItems[index].name,
                                   image: myFilteredItems[index].image,
-                                  descreption:
-                                      myFilteredItems[index].descreption,
+                                  instructions:
+                                      myFilteredItems[index].instructions,
+                                  ingredients:
+                                      myFilteredItems[index].ingredients,
+                                  category:
+                                      myFilteredItems[index].categorise.name,
                                 ),
                               ),
                             );
