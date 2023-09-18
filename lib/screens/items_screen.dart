@@ -53,8 +53,8 @@ class ItemsScreen extends StatelessWidget {
                                       myFilteredItems[index].instructions,
                                   ingredients:
                                       myFilteredItems[index].ingredients,
-                                  category:
-                                      myFilteredItems[index].categorise.name,
+                                  category: myFilteredItems[index].categorise,
+                                  index: index,
                                 ),
                               ),
                             );

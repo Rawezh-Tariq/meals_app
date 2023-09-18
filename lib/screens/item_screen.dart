@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/models/items.dart';
 
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 
@@ -11,16 +12,35 @@ class ItemScreen extends StatelessWidget {
     required this.instructions,
     required this.ingredients,
     required this.category,
+    required this.index,
   });
   final ThemeData curentTheme;
   final String name;
   final String image;
-  final String category;
+  final Categories category;
   final String ingredients;
   final String instructions;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
+    bool isitmyFav = false;
+    List<Item> myFavorites = [];
+    void isFave() {
+      isitmyFav == true ? isitmyFav = false : isitmyFav = true;
+      if (isitmyFav == true) {
+        myFavorites.add(Item(name, image, category, instructions, ingredients));
+      } else {
+        myFavorites.removeWhere(
+          (item) {
+            item.name == item.name;
+            return true;
+          },
+        );
+      }
+      print('index: $index issd: $isitmyFav mylist $myFavorites');
+    }
+
     return Scaffold(
       backgroundColor: curentTheme.colorScheme.background,
       appBar: AppBar(
@@ -29,7 +49,7 @@ class ItemScreen extends StatelessWidget {
         title: const Text('Welcome'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: isFave,
             icon: const Icon(Icons.favorite),
           ),
         ],
@@ -70,7 +90,7 @@ class ItemScreen extends StatelessWidget {
                 ),
                 Text(
                   textAlign: TextAlign.center,
-                  'Catigory : $category',
+                  'Catigory : ${category.name}',
                   style: curentTheme.textTheme.titleMedium!
                       .copyWith(color: Colors.orange),
                 ),
