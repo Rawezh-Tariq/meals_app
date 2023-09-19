@@ -5,8 +5,10 @@ import 'package:meals_app/screens/items_screen.dart';
 import 'package:meals_app/tools/theme.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
+  const HomeScreen(
+      {super.key, required this.currentScreen, required this.curentTheme});
+  final String currentScreen;
+  final ThemeData curentTheme;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -39,8 +41,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       backgroundColor: curentTheme.colorScheme.background,
       drawer: DrawerScreen(curentTheme: curentTheme),
-      body: ItemsScreen(curentTheme: curentTheme),
-      bottomNavigationBar: BottomNavigatorScreen(curentTheme: curentTheme),
+      body: ItemsScreen(
+        curentTheme: curentTheme,
+      ),
+      bottomNavigationBar: BottomNavigatorScreen(
+        curentTheme: curentTheme,
+        currentScreen: 'home',
+      ),
     );
   }
 }

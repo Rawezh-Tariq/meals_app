@@ -3,7 +3,10 @@ import 'package:meals_app/models/items.dart';
 import 'package:meals_app/screens/item_screen.dart';
 
 class ItemsScreen extends StatelessWidget {
-  const ItemsScreen({super.key, required this.curentTheme});
+  const ItemsScreen({
+    super.key,
+    required this.curentTheme,
+  });
   final ThemeData curentTheme;
 
   @override

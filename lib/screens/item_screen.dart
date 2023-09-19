@@ -38,7 +38,6 @@ class ItemScreen extends StatelessWidget {
           },
         );
       }
-      print('index: $index issd: $isitmyFav mylist $myFavorites');
     }
 
     return Scaffold(
@@ -116,7 +115,10 @@ class ItemScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigatorScreen(curentTheme: curentTheme),
+      bottomNavigationBar: BottomNavigatorScreen(
+        curentTheme: curentTheme,
+        currentScreen: 'item',
+      ),
     );
   }
 }
