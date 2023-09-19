@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/favorite_screen.dart';
-
-import 'package:meals_app/screens/items_screen.dart';
+import 'package:meals_app/screens/item_screen.dart';
 
 class BottomNavigatorScreen extends StatelessWidget {
   const BottomNavigatorScreen({
@@ -34,7 +33,7 @@ class BottomNavigatorScreen extends StatelessWidget {
           }));
         } else if (currentIndex == 2 && currentScreen != 'item') {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ItemsScreen(
+            return ItemScreen(
               curentTheme: curentTheme,
             );
           }));

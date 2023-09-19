@@ -3,16 +3,18 @@ import 'package:meals_app/models/items.dart';
 
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 
+List myFavorites = [];
+
 class ItemScreen extends StatelessWidget {
   const ItemScreen({
     super.key,
-    required this.name,
-    required this.image,
+    this.name = '',
+    this.image = '',
     required this.curentTheme,
-    required this.instructions,
-    required this.ingredients,
-    required this.category,
-    required this.index,
+    this.instructions = '',
+    this.ingredients = '',
+    this.category = Categories.meat,
+    this.index = 0,
   });
   final ThemeData curentTheme;
   final String name;
@@ -25,7 +27,7 @@ class ItemScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isitmyFav = false;
-    List<Item> myFavorites = [];
+
     void isFave() {
       isitmyFav == true ? isitmyFav = false : isitmyFav = true;
       if (isitmyFav == true) {
@@ -34,6 +36,7 @@ class ItemScreen extends StatelessWidget {
         myFavorites.removeWhere(
           (item) {
             item.name == item.name;
+
             return true;
           },
         );

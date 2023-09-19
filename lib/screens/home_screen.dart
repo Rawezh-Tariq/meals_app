@@ -5,10 +5,12 @@ import 'package:meals_app/screens/items_screen.dart';
 import 'package:meals_app/tools/theme.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen(
-      {super.key, required this.currentScreen, required this.curentTheme});
+  const HomeScreen({
+    super.key,
+    required this.currentScreen,
+  });
   final String currentScreen;
-  final ThemeData curentTheme;
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }

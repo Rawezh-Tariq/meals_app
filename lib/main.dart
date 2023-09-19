@@ -18,7 +18,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: myLightTheme,
       darkTheme: myDarkTheme,
-      home: HomeScreen(currentScreen: 'home', curentTheme: myLightTheme),
+      home: const HomeScreen(currentScreen: 'home'),
     );
   }
 }

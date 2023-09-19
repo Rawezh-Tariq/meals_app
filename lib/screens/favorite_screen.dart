@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
+import 'package:meals_app/screens/item_screen.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({
@@ -15,11 +17,9 @@ class FavoriteScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('welcome'),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Text('name'),
-          Text(''),
-          Text(''),
+          Text(myFavorites[0].toString()),
         ],
       ),
       bottomNavigationBar: BottomNavigatorScreen(
