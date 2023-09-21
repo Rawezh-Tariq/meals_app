@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/models/items.dart';
 import 'package:meals_app/screens/favorite_screen.dart';
-import 'package:meals_app/screens/item_screen.dart';
 
 class BottomNavigatorScreen extends StatelessWidget {
   const BottomNavigatorScreen({
@@ -27,16 +27,22 @@ class BottomNavigatorScreen extends StatelessWidget {
           Navigator.popUntil(context, (route) => route.isFirst);
         } else if (currentIndex == 1 && currentScreen != 'favorite') {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
+            List<Item> myFavs = myItems
+                .where((element) => element.isItFavorite == true)
+                .toList();
+
             return FavoriteScreen(
               curentTheme: curentTheme,
+              myFavs: myFavs,
             );
           }));
         } else if (currentIndex == 2 && currentScreen != 'item') {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ItemScreen(
-              curentTheme: curentTheme,
-            );
-          }));
+          return;
+          // Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //   return ItemScreen(
+          //     curentTheme: curentTheme,
+          //   );
+          // }));
         }
       },
       items: const [

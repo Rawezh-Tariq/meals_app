@@ -3,8 +3,6 @@ import 'package:meals_app/models/items.dart';
 
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 
-List myFavorites = [];
-
 class ItemScreen extends StatelessWidget {
   const ItemScreen({
     super.key,
@@ -14,7 +12,7 @@ class ItemScreen extends StatelessWidget {
     this.instructions = '',
     this.ingredients = '',
     this.category = Categories.meat,
-    this.index = 0,
+    this.id = 0,
   });
   final ThemeData curentTheme;
   final String name;
@@ -22,25 +20,14 @@ class ItemScreen extends StatelessWidget {
   final Categories category;
   final String ingredients;
   final String instructions;
-  final int index;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
-    bool isitmyFav = false;
-
     void isFave() {
-      isitmyFav == true ? isitmyFav = false : isitmyFav = true;
-      if (isitmyFav == true) {
-        myFavorites.add(Item(name, image, category, instructions, ingredients));
-      } else {
-        myFavorites.removeWhere(
-          (item) {
-            item.name == item.name;
-
-            return true;
-          },
-        );
-      }
+      myItems[id].isItFavorite == false
+          ? myItems[id].isItFavorite = true
+          : myItems[id].isItFavorite = false;
     }
 
     return Scaffold(
@@ -49,6 +36,11 @@ class ItemScreen extends StatelessWidget {
         titleTextStyle: curentTheme.appBarTheme.titleTextStyle,
         iconTheme: curentTheme.appBarTheme.actionsIconTheme,
         title: const Text('Welcome'),
+        leading: IconButton(
+          onPressed: () =>
+              Navigator.popUntil(context, (route) => route.isFirst),
+          icon: const Icon(Icons.arrow_back),
+        ),
         actions: [
           IconButton(
             onPressed: isFave,
