@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 import 'package:meals_app/screens/drawer_screen.dart';
-
 import 'package:meals_app/screens/items_screen.dart';
 import 'package:meals_app/tools/theme.dart';
 
