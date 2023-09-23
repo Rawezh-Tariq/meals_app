@@ -8,16 +8,18 @@ class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({
     super.key,
     required this.curentTheme,
-    required this.myFavs,
+    required this.myFavorites,
   });
   final ThemeData curentTheme;
-  final List<Item> myFavs;
+  final List<Item> myFavorites;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: curentTheme.colorScheme.background,
       appBar: AppBar(
+        titleTextStyle: curentTheme.appBarTheme.titleTextStyle,
+        iconTheme: curentTheme.appBarTheme.actionsIconTheme,
         title: const Text('welcome'),
         leading: IconButton(
           onPressed: () =>
@@ -45,14 +47,14 @@ class FavoriteScreen extends StatelessWidget {
                     Expanded(
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: myFavs
+                        itemCount: myFavorites
                             .where((element) =>
                                 element.categorise.name ==
                                     Categories.values[i].name &&
                                 element.isItFavorite == true)
                             .length,
                         itemBuilder: (context, index) {
-                          final myFilteredItems = myFavs
+                          final myFilteredItems = myFavorites
                               .where((element) =>
                                   element.categorise.name ==
                                       Categories.values[i].name &&

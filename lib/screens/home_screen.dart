@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 import 'package:meals_app/screens/drawer_screen.dart';
 
@@ -8,7 +9,7 @@ import 'package:meals_app/tools/theme.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
-    required this.currentScreen,
+    this.currentScreen = '',
   });
   final String currentScreen;
 
