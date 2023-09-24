@@ -34,13 +34,15 @@ class ItemsScreen extends StatelessWidget {
                       itemCount: myItems
                           .where((element) =>
                               element.categorise.name ==
-                              Categories.values[i].name)
+                                  Categories.values[i].name &&
+                              element.isFiltered == false)
                           .length,
                       itemBuilder: (context, index) {
                         final myFilteredItems = myItems
                             .where((element) =>
                                 element.categorise.name ==
-                                Categories.values[i].name)
+                                    Categories.values[i].name &&
+                                element.isFiltered == false)
                             .toList();
 
                         return GestureDetector(

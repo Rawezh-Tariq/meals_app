@@ -65,15 +65,15 @@ ThemeData myLightTheme = ThemeData(
   textTheme: TextTheme(
     titleLarge: GoogleFonts.lobster(
       fontSize: 50,
-      color: Colors.black,
+      color: Colors.orange,
     ),
     titleMedium: GoogleFonts.lobster(
       fontSize: 26,
-      color: Colors.black,
+      color: Colors.orange,
     ),
     titleSmall: GoogleFonts.lobster(
       fontSize: 18,
-      color: Colors.black,
+      color: Colors.orange,
     ),
   ),
   drawerTheme: const DrawerThemeData(

@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+
 import 'package:meals_app/models/items.dart';
-import 'package:meals_app/screens/home_screen.dart';
+
+import 'package:meals_app/tools/theme.dart';
 
 class DrawerScreen extends StatefulWidget {
-  const DrawerScreen({super.key, required this.curentTheme});
+  const DrawerScreen(
+      {super.key, required this.curentTheme, required this.onCloseDrawer});
   final ThemeData curentTheme;
+  final Function onCloseDrawer;
 
   @override
   State<DrawerScreen> createState() => _DrawerScreenState();
 }
 
-String? myFilterCategory;
-
 class _DrawerScreenState extends State<DrawerScreen> {
+  List<String> myFilterButton = [];
+  List<String?> myFilterValues = [];
+
   @override
   Widget build(BuildContext context) {
-    List<Item> mymy = myItems;
     return Drawer(
       backgroundColor: widget.curentTheme.drawerTheme.backgroundColor,
       child: ListView(
@@ -26,77 +30,85 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 style: widget.curentTheme.textTheme.titleLarge!
                     .copyWith(color: Colors.orange)),
           ),
-          ListTile(
-            title: DropdownButton<String>(
-              borderRadius: BorderRadius.circular(50),
-              value: myFilterCategory,
-              hint: Text(
-                'Filter by Category',
-                style: widget.curentTheme.textTheme.titleMedium!
-                    .copyWith(color: Colors.orange),
-              ),
-              isExpanded: true,
-              style: widget.curentTheme.textTheme.titleMedium!
-                  .copyWith(color: Colors.orange),
-              dropdownColor: widget.curentTheme.colorScheme.background,
-              elevation: 0,
-              underline:
-                  const Divider(color: Colors.orange, thickness: 1, height: 1),
-              iconEnabledColor: Colors.orange,
-              items: [
-                for (int i = 0; i < Categories.values.length; i++)
-                  DropdownMenuItem<String>(
-                      value: Categories.values[i].name,
-                      child: Text(Categories.values[i].name)),
-              ],
-              onChanged: (name) {
-                setState(() {
-                  myFilterCategory = name;
-                });
-
-                myItems.retainWhere(
-                    (element) => element.categorise.name == myFilterCategory);
-              },
-            ),
-          ),
-          ListTile(
-            title: DropdownButton<String>(
-              borderRadius: BorderRadius.circular(50),
-              hint: Text(
-                'Filter by Calorie',
-                style: widget.curentTheme.textTheme.titleMedium!
-                    .copyWith(color: Colors.orange),
-              ),
-              isExpanded: true,
-              style: widget.curentTheme.textTheme.titleMedium!
-                  .copyWith(color: Colors.orange),
-              dropdownColor: widget.curentTheme.colorScheme.background,
-              elevation: 0,
-              underline:
-                  const Divider(color: Colors.orange, thickness: 1, height: 1),
-              iconEnabledColor: Colors.orange,
-              items: [
-                for (int i = 0; i < Categories.values.length; i++)
-                  DropdownMenuItem<String>(
-                      value: Categories.values[i].name,
-                      child: Text(Categories.values[i].name)),
-              ],
-              onChanged: (name) {
-                myFilterCategory = name;
-                myItems = mymy;
-              },
-            ),
-          ),
-          TextButton(
+          ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (contex) => const HomeScreen(),
-                    ));
+                setState(() {
+                  myFilterButton.add('filter ${myFilterButton.length}');
+                  myFilterValues.add(null);
+                });
               },
-              child: const Text('data')),
-          TextButton(onPressed: () {}, child: const Text('data')),
+              child: Text(
+                'Create a Filter',
+                style: widget.curentTheme.textTheme.titleMedium!.copyWith(
+                    color: widget.curentTheme == myLightTheme
+                        ? Colors.white
+                        : Colors.black),
+              )),
+          ListView.builder(
+            itemCount: myFilterButton.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: DropdownButton<String>(
+                  borderRadius: BorderRadius.circular(50),
+                  alignment: Alignment.center,
+                  value: myFilterValues[index],
+                  hint: Text('Filter by Category',
+                      style: widget.curentTheme.textTheme.titleMedium!
+                          .copyWith(color: Colors.orange)),
+                  isExpanded: true,
+                  style: widget.curentTheme.textTheme.titleMedium!
+                      .copyWith(color: Colors.orange),
+                  dropdownColor: widget.curentTheme.colorScheme.background,
+                  elevation: 0,
+                  underline: const SizedBox(),
+                  iconEnabledColor: Colors.orange,
+                  items: [
+                    for (int i = 0; i < Categories.values.length; i++)
+                      DropdownMenuItem<String>(
+                          alignment: Alignment.center,
+                          value: Categories.values[i].name,
+                          child: Text(Categories.values[i].name)),
+                  ],
+                  onChanged: (name) {
+                    setState(() {
+                      myFilterValues[index] = name;
+                    });
+                  },
+                ),
+              );
+            },
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    for (int i = 0; i < myItems.length; i++) {}
+
+                    Scaffold.of(context).closeDrawer();
+                    widget.onCloseDrawer();
+                  },
+                  child: Text(
+                    'Apply Filters',
+                    style: widget.curentTheme.textTheme.titleMedium!.copyWith(
+                        color: widget.curentTheme == myLightTheme
+                            ? Colors.white
+                            : Colors.black),
+                  )),
+              TextButton(
+                  onPressed: () {
+                    setState(() {});
+                    Scaffold.of(context).closeDrawer();
+                    widget.onCloseDrawer();
+                  },
+                  child: Text(
+                    'Reset',
+                    style: widget.curentTheme.textTheme.titleMedium!
+                        .copyWith(color: Colors.orange),
+                  )),
+            ],
+          ),
         ],
       ),
     );

@@ -8,6 +8,7 @@ class Item {
   Categories categorise;
   bool isItFavorite;
   int id;
+  bool isFiltered;
 
   Item(
     this.name,
@@ -17,6 +18,7 @@ class Item {
     this.ingredients,
     this.isItFavorite,
     this.id,
+    this.isFiltered,
   );
 }
 
@@ -29,6 +31,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     0,
+    false,
   ),
   Item(
     'falafl',
@@ -38,6 +41,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     1,
+    false,
   ),
   Item(
     'chickn',
@@ -47,6 +51,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     2,
+    false,
   ),
   Item(
     'water',
@@ -56,6 +61,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     3,
+    false,
   ),
   Item(
     'pitza',
@@ -65,6 +71,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     4,
+    false,
   ),
   Item(
     'milk',
@@ -74,6 +81,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     5,
+    false,
   ),
   Item(
     'cake',
@@ -83,6 +91,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     6,
+    false,
   ),
   Item(
     'salad',
@@ -92,6 +101,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     7,
+    false,
   ),
   Item(
     'jgar',
@@ -101,6 +111,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     8,
+    false,
   ),
   Item(
     'trshyat',
@@ -110,5 +121,6 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     9,
+    false,
   ),
 ];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:meals_app/screens/bottom_navigator_screen.dart';
 import 'package:meals_app/screens/drawer_screen.dart';
 import 'package:meals_app/screens/items_screen.dart';
@@ -23,6 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void refreshItemsScreen() {
+    setState(() {
+      ItemsScreen(curentTheme: curentTheme);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       backgroundColor: curentTheme.colorScheme.background,
-      drawer: DrawerScreen(curentTheme: curentTheme),
+      drawer: DrawerScreen(
+          curentTheme: curentTheme, onCloseDrawer: refreshItemsScreen),
       body: ItemsScreen(
         curentTheme: curentTheme,
       ),
