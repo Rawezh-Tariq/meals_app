@@ -31,7 +31,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     0,
-    false,
+    true,
   ),
   Item(
     'falafl',
@@ -41,7 +41,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     1,
-    false,
+    true,
   ),
   Item(
     'chickn',
@@ -51,7 +51,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     2,
-    false,
+    true,
   ),
   Item(
     'water',
@@ -61,7 +61,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     3,
-    false,
+    true,
   ),
   Item(
     'pitza',
@@ -71,7 +71,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     4,
-    false,
+    true,
   ),
   Item(
     'milk',
@@ -81,7 +81,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     5,
-    false,
+    true,
   ),
   Item(
     'cake',
@@ -91,7 +91,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     6,
-    false,
+    true,
   ),
   Item(
     'salad',
@@ -101,7 +101,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     7,
-    false,
+    true,
   ),
   Item(
     'jgar',
@@ -111,7 +111,7 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     8,
-    false,
+    true,
   ),
   Item(
     'trshyat',
@@ -121,6 +121,6 @@ List<Item> myItems = [
     'hbfkh-jhfbhd-jhfbha-jhdfhaf-jahbfhaf-jahdfbiaf-jhf',
     false,
     9,
-    false,
+    true,
   ),
 ];

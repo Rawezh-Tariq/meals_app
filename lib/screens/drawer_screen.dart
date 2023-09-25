@@ -15,15 +15,16 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
-  List<String> myFilterButton = [];
-  List<String?> myFilterValues = [];
+  List<String> addDropDowns = [];
+  List<String?> mySelectedValue = [];
+  List<Item> myFilteredItems = [];
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: widget.curentTheme.drawerTheme.backgroundColor,
       child: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
         children: [
           DrawerHeader(
             child: Text('My Filters',
@@ -33,8 +34,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
           ElevatedButton(
               onPressed: () {
                 setState(() {
-                  myFilterButton.add('filter ${myFilterButton.length}');
-                  myFilterValues.add(null);
+                  addDropDowns.add('filter ${addDropDowns.length}');
+                  mySelectedValue.add(null);
                 });
               },
               child: Text(
@@ -45,19 +46,19 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         : Colors.black),
               )),
           ListView.builder(
-            itemCount: myFilterButton.length,
+            itemCount: addDropDowns.length,
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return ListTile(
                 title: DropdownButton<String>(
                   borderRadius: BorderRadius.circular(50),
                   alignment: Alignment.center,
-                  value: myFilterValues[index],
+                  value: mySelectedValue[index],
                   hint: Text('Filter by Category',
-                      style: widget.curentTheme.textTheme.titleMedium!
+                      style: widget.curentTheme.textTheme.titleSmall!
                           .copyWith(color: Colors.orange)),
                   isExpanded: true,
-                  style: widget.curentTheme.textTheme.titleMedium!
+                  style: widget.curentTheme.textTheme.titleSmall!
                       .copyWith(color: Colors.orange),
                   dropdownColor: widget.curentTheme.colorScheme.background,
                   elevation: 0,
@@ -72,7 +73,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   ],
                   onChanged: (name) {
                     setState(() {
-                      myFilterValues[index] = name;
+                      mySelectedValue[index] = name;
                     });
                   },
                 ),
@@ -83,30 +84,52 @@ class _DrawerScreenState extends State<DrawerScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                  onPressed: () {
-                    for (int i = 0; i < myItems.length; i++) {}
+                onPressed: () {
+                  for (var item in myItems) {
+                    item.isFiltered = false;
+                    for (var element in mySelectedValue) {
+                      if (item.categorise.name == element) {
+                        item.isFiltered = true;
+                        myFilteredItems.add(item);
+                      }
+                    }
+                  }
 
-                    Scaffold.of(context).closeDrawer();
-                    widget.onCloseDrawer();
-                  },
-                  child: Text(
-                    'Apply Filters',
-                    style: widget.curentTheme.textTheme.titleMedium!.copyWith(
-                        color: widget.curentTheme == myLightTheme
-                            ? Colors.white
-                            : Colors.black),
-                  )),
+                  for (var a in myFilteredItems) {
+                    myItems.where((element) => element.name == a.name).forEach(
+                      (element) {
+                        element.isFiltered = true;
+                      },
+                    );
+                  }
+
+                  Scaffold.of(context).closeDrawer();
+                  widget.onCloseDrawer();
+                },
+                child: Text(
+                  'Apply Filters',
+                  style: widget.curentTheme.textTheme.titleMedium!.copyWith(
+                      color: widget.curentTheme == myLightTheme
+                          ? Colors.white
+                          : Colors.black),
+                ),
+              ),
               TextButton(
-                  onPressed: () {
-                    setState(() {});
-                    Scaffold.of(context).closeDrawer();
-                    widget.onCloseDrawer();
-                  },
-                  child: Text(
-                    'Reset',
-                    style: widget.curentTheme.textTheme.titleMedium!
-                        .copyWith(color: Colors.orange),
-                  )),
+                onPressed: () {
+                  for (var element in myItems) {
+                    element.isFiltered == false
+                        ? element.isFiltered = true
+                        : null;
+                  }
+                  Scaffold.of(context).closeDrawer();
+                  widget.onCloseDrawer();
+                },
+                child: Text(
+                  'Reset',
+                  style: widget.curentTheme.textTheme.titleMedium!
+                      .copyWith(color: Colors.orange),
+                ),
+              ),
             ],
           ),
         ],
