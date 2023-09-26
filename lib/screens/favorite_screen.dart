@@ -51,14 +51,16 @@ class FavoriteScreen extends StatelessWidget {
                             .where((element) =>
                                 element.categorise.name ==
                                     Categories.values[i].name &&
-                                element.isItFavorite == true)
+                                element.isItFavorite == true &&
+                                element.isFiltered == true)
                             .length,
                         itemBuilder: (context, index) {
                           final myFilteredItems = myFavorites
                               .where((element) =>
                                   element.categorise.name ==
                                       Categories.values[i].name &&
-                                  element.isItFavorite == true)
+                                  element.isItFavorite == true &&
+                                  element.isFiltered == true)
                               .toList();
 
                           return GestureDetector(

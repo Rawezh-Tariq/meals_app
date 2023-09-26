@@ -48,6 +48,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         : Colors.black),
               )),
           Container(
+            padding: EdgeInsets.zero,
             decoration: BoxDecoration(
               border: Border.all(width: 1, color: Colors.orange),
               borderRadius: BorderRadius.circular(50),
@@ -63,7 +64,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           borderRadius: BorderRadius.circular(50),
                           alignment: Alignment.center,
                           value: mySelectedValue[index],
-                          hint: Text('Filter by Category',
+                          hint: Text('Choose a Category',
                               style: widget.curentTheme.textTheme.titleMedium!
                                   .copyWith(color: Colors.orange)),
                           isExpanded: true,
@@ -96,7 +97,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  mySelectedValue.isEmpty
+                  mySelectedValue.isEmpty ||
+                          mySelectedValue.every((element) => element == null)
                       ? null
                       : {
                           for (var item in myItems)
@@ -111,16 +113,16 @@ class _DrawerScreenState extends State<DrawerScreen> {
                                     }
                                 }
                             },
-                          for (var a in myFilteredItems)
+                          for (var element in myFilteredItems)
                             {
                               myItems
-                                  .where((element) => element.name == a.name)
+                                  .where((item) => item.name == element.name)
                                   .forEach(
                                 (element) {
                                   element.isFiltered = true;
                                 },
                               )
-                            }
+                            },
                         };
                   Scaffold.of(context).closeDrawer();
                   widget.onCloseDrawer();

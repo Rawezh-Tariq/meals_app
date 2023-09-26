@@ -44,6 +44,7 @@ ThemeData myDarkTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.black,
     unselectedItemColor: Colors.orange,
+    selectedItemColor: Colors.orange,
   ),
 );
 
@@ -89,5 +90,6 @@ ThemeData myLightTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
     unselectedItemColor: Colors.orange,
+    selectedItemColor: Colors.orange,
   ),
 );

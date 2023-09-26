@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/items.dart';
 import 'package:meals_app/screens/favorite_screen.dart';
-import 'package:meals_app/screens/filters_screen.dart';
 
 class BottomNavigatorScreen extends StatelessWidget {
   const BottomNavigatorScreen({
@@ -20,6 +19,7 @@ class BottomNavigatorScreen extends StatelessWidget {
       backgroundColor: curentTheme.bottomNavigationBarTheme.backgroundColor,
       unselectedItemColor:
           curentTheme.bottomNavigationBarTheme.unselectedItemColor,
+      selectedItemColor: curentTheme.bottomNavigationBarTheme.selectedItemColor,
       currentIndex: currentIndex,
       onTap: (currentIndex) {
         currentIndex = currentIndex;
@@ -37,12 +37,6 @@ class BottomNavigatorScreen extends StatelessWidget {
               myFavorites: myFavorites,
             );
           }));
-        } else if (currentIndex == 2 && currentScreen != 'filters') {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return FiltersScreen(
-              curentTheme: curentTheme,
-            );
-          }));
         }
       },
       items: const [
@@ -53,10 +47,6 @@ class BottomNavigatorScreen extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.favorite),
           label: 'Favorite',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.list),
-          label: 'Filters',
         ),
       ],
     );
