@@ -33,10 +33,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
           ),
           ElevatedButton(
               onPressed: () {
-                setState(() {
-                  addDropDowns.add('filter ${addDropDowns.length}');
-                  mySelectedValue.add(null);
-                });
+                addDropDowns.length >= Categories.values.length
+                    ? null
+                    : setState(() {
+                        addDropDowns.add('filter ${addDropDowns.length}');
+                        mySelectedValue.add(null);
+                      });
               },
               child: Text(
                 'Create a Filter',
@@ -45,64 +47,81 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         ? Colors.white
                         : Colors.black),
               )),
-          ListView.builder(
-            itemCount: addDropDowns.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: DropdownButton<String>(
-                  borderRadius: BorderRadius.circular(50),
-                  alignment: Alignment.center,
-                  value: mySelectedValue[index],
-                  hint: Text('Filter by Category',
-                      style: widget.curentTheme.textTheme.titleSmall!
-                          .copyWith(color: Colors.orange)),
-                  isExpanded: true,
-                  style: widget.curentTheme.textTheme.titleSmall!
-                      .copyWith(color: Colors.orange),
-                  dropdownColor: widget.curentTheme.colorScheme.background,
-                  elevation: 0,
-                  underline: const SizedBox(),
-                  iconEnabledColor: Colors.orange,
-                  items: [
-                    for (int i = 0; i < Categories.values.length; i++)
-                      DropdownMenuItem<String>(
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Colors.orange),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: addDropDowns.isEmpty
+                ? null
+                : ListView.builder(
+                    itemCount: addDropDowns.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: DropdownButton<String>(
+                          borderRadius: BorderRadius.circular(50),
                           alignment: Alignment.center,
-                          value: Categories.values[i].name,
-                          child: Text(Categories.values[i].name)),
-                  ],
-                  onChanged: (name) {
-                    setState(() {
-                      mySelectedValue[index] = name;
-                    });
-                  },
-                ),
-              );
-            },
+                          value: mySelectedValue[index],
+                          hint: Text('Filter by Category',
+                              style: widget.curentTheme.textTheme.titleMedium!
+                                  .copyWith(color: Colors.orange)),
+                          isExpanded: true,
+                          style: widget.curentTheme.textTheme.titleMedium!
+                              .copyWith(color: Colors.orange),
+                          dropdownColor:
+                              widget.curentTheme.colorScheme.background,
+                          elevation: 0,
+                          underline: const SizedBox(),
+                          iconEnabledColor: Colors.orange,
+                          items: [
+                            for (int i = 0; i < Categories.values.length; i++)
+                              DropdownMenuItem<String>(
+                                  alignment: Alignment.center,
+                                  value: Categories.values[i].name,
+                                  child: Text(Categories.values[i].name)),
+                          ],
+                          onChanged: (name) {
+                            setState(() {
+                              mySelectedValue[index] = name;
+                            });
+                          },
+                        ),
+                      );
+                    },
+                  ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                 onPressed: () {
-                  for (var item in myItems) {
-                    item.isFiltered = false;
-                    for (var element in mySelectedValue) {
-                      if (item.categorise.name == element) {
-                        item.isFiltered = true;
-                        myFilteredItems.add(item);
-                      }
-                    }
-                  }
-
-                  for (var a in myFilteredItems) {
-                    myItems.where((element) => element.name == a.name).forEach(
-                      (element) {
-                        element.isFiltered = true;
-                      },
-                    );
-                  }
-
+                  mySelectedValue.isEmpty
+                      ? null
+                      : {
+                          for (var item in myItems)
+                            {
+                              item.isFiltered = false,
+                              for (var element in mySelectedValue)
+                                {
+                                  if (item.categorise.name == element)
+                                    {
+                                      item.isFiltered = true,
+                                      myFilteredItems.add(item),
+                                    }
+                                }
+                            },
+                          for (var a in myFilteredItems)
+                            {
+                              myItems
+                                  .where((element) => element.name == a.name)
+                                  .forEach(
+                                (element) {
+                                  element.isFiltered = true;
+                                },
+                              )
+                            }
+                        };
                   Scaffold.of(context).closeDrawer();
                   widget.onCloseDrawer();
                 },
