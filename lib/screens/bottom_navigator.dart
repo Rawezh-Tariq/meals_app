@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/items.dart';
+import 'package:meals_app/tools/my_data.dart';
 import 'package:meals_app/screens/favorite_screen.dart';
 
 class BottomNavigatorScreen extends StatelessWidget {

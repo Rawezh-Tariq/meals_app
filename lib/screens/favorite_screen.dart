@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/items.dart';
 
-import 'package:meals_app/screens/bottom_navigator_screen.dart';
+import 'package:meals_app/screens/bottom_navigator.dart';
 import 'package:meals_app/screens/item_screen.dart';
 
 class FavoriteScreen extends StatelessWidget {

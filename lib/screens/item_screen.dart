@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/items.dart';
+import 'package:meals_app/tools/my_data.dart';
 
-import 'package:meals_app/screens/bottom_navigator_screen.dart';
+import 'package:meals_app/screens/bottom_navigator.dart';
 
 class ItemScreen extends StatelessWidget {
   const ItemScreen({
