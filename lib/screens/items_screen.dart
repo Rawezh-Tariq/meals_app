@@ -20,13 +20,9 @@ class ItemsScreen extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      Categories.values[i].name,
-                      style: curentTheme.textTheme.titleLarge!
-                          .copyWith(color: Colors.orange),
-                    ),
+                  Text(
+                    Categories.values[i].name,
+                    style: curentTheme.textTheme.titleLarge,
                   ),
                   Expanded(
                     child: ListView.builder(
@@ -71,7 +67,8 @@ class ItemsScreen extends StatelessWidget {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 3, color: Colors.orange),
+                                        width: 3,
+                                        color: curentTheme.colorScheme.primary),
                                     borderRadius: BorderRadius.circular(55),
                                   ),
                                   child: ClipRRect(
@@ -87,8 +84,7 @@ class ItemsScreen extends StatelessWidget {
                               ),
                               Text(
                                 myFilteredItems[index].name,
-                                style: curentTheme.textTheme.titleSmall!
-                                    .copyWith(color: Colors.orange),
+                                style: curentTheme.textTheme.titleSmall,
                               ),
                             ],
                           ),
@@ -96,7 +92,7 @@ class ItemsScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const Divider(color: Colors.orange, thickness: 3),
+                  Divider(color: curentTheme.colorScheme.primary, thickness: 3),
                 ],
               ),
             ),

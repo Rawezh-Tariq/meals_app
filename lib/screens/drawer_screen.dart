@@ -24,12 +24,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
     return Drawer(
       backgroundColor: widget.curentTheme.drawerTheme.backgroundColor,
       child: ListView(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         children: [
           DrawerHeader(
             child: Text('My Filters',
-                style: widget.curentTheme.textTheme.titleLarge!
-                    .copyWith(color: Colors.orange)),
+                style: widget.curentTheme.textTheme.titleLarge),
           ),
           ElevatedButton(
               onPressed: () {
@@ -47,50 +46,38 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         ? Colors.white
                         : Colors.black),
               )),
-          Container(
-            padding: EdgeInsets.zero,
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Colors.orange),
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: addDropDowns.isEmpty
-                ? null
-                : ListView.builder(
-                    itemCount: addDropDowns.length,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: DropdownButton<String>(
-                          borderRadius: BorderRadius.circular(50),
+          ListView.builder(
+            itemCount: addDropDowns.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: DropdownButton<String>(
+                  borderRadius: BorderRadius.circular(50),
+                  alignment: Alignment.center,
+                  value: mySelectedValue[index],
+                  hint: Text('Choose a Category',
+                      style: widget.curentTheme.textTheme.titleSmall),
+                  isExpanded: true,
+                  style: widget.curentTheme.textTheme.titleMedium,
+                  dropdownColor: widget.curentTheme.colorScheme.background,
+                  elevation: 0,
+                  underline: const SizedBox(),
+                  iconEnabledColor: widget.curentTheme.colorScheme.primary,
+                  items: [
+                    for (int i = 0; i < Categories.values.length; i++)
+                      DropdownMenuItem<String>(
                           alignment: Alignment.center,
-                          value: mySelectedValue[index],
-                          hint: Text('Choose a Category',
-                              style: widget.curentTheme.textTheme.titleMedium!
-                                  .copyWith(color: Colors.orange)),
-                          isExpanded: true,
-                          style: widget.curentTheme.textTheme.titleMedium!
-                              .copyWith(color: Colors.orange),
-                          dropdownColor:
-                              widget.curentTheme.colorScheme.background,
-                          elevation: 0,
-                          underline: const SizedBox(),
-                          iconEnabledColor: Colors.orange,
-                          items: [
-                            for (int i = 0; i < Categories.values.length; i++)
-                              DropdownMenuItem<String>(
-                                  alignment: Alignment.center,
-                                  value: Categories.values[i].name,
-                                  child: Text(Categories.values[i].name)),
-                          ],
-                          onChanged: (name) {
-                            setState(() {
-                              mySelectedValue[index] = name;
-                            });
-                          },
-                        ),
-                      );
-                    },
-                  ),
+                          value: Categories.values[i].name,
+                          child: Text(Categories.values[i].name)),
+                  ],
+                  onChanged: (name) {
+                    setState(() {
+                      mySelectedValue[index] = name;
+                    });
+                  },
+                ),
+              );
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -129,7 +116,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 },
                 child: Text(
                   'Apply Filters',
-                  style: widget.curentTheme.textTheme.titleMedium!.copyWith(
+                  style: widget.curentTheme.textTheme.titleSmall!.copyWith(
                       color: widget.curentTheme == myLightTheme
                           ? Colors.white
                           : Colors.black),
@@ -147,8 +134,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 },
                 child: Text(
                   'Reset',
-                  style: widget.curentTheme.textTheme.titleMedium!
-                      .copyWith(color: Colors.orange),
+                  style: widget.curentTheme.textTheme.titleSmall,
                 ),
               ),
             ],

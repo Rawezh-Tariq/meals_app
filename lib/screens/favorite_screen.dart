@@ -15,12 +15,13 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String screen = 'Favorites';
     return Scaffold(
       backgroundColor: curentTheme.colorScheme.background,
       appBar: AppBar(
         titleTextStyle: curentTheme.appBarTheme.titleTextStyle,
         iconTheme: curentTheme.appBarTheme.actionsIconTheme,
-        title: const Text('welcome'),
+        title: Text(screen),
         leading: IconButton(
           onPressed: () =>
               Navigator.popUntil(context, (route) => route.isFirst),
@@ -40,8 +41,7 @@ class FavoriteScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         Categories.values[i].name,
-                        style: curentTheme.textTheme.titleLarge!
-                            .copyWith(color: Colors.orange),
+                        style: curentTheme.textTheme.titleLarge,
                       ),
                     ),
                     Expanded(
@@ -89,7 +89,9 @@ class FavoriteScreen extends StatelessWidget {
                                   child: Container(
                                     decoration: BoxDecoration(
                                       border: Border.all(
-                                          width: 3, color: Colors.orange),
+                                          width: 3,
+                                          color:
+                                              curentTheme.colorScheme.primary),
                                       borderRadius: BorderRadius.circular(55),
                                     ),
                                     child: ClipRRect(
@@ -105,8 +107,7 @@ class FavoriteScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   myFilteredItems[index].name,
-                                  style: curentTheme.textTheme.titleSmall!
-                                      .copyWith(color: Colors.orange),
+                                  style: curentTheme.textTheme.titleSmall,
                                 ),
                               ],
                             ),
@@ -114,7 +115,8 @@ class FavoriteScreen extends StatelessWidget {
                         },
                       ),
                     ),
-                    const Divider(color: Colors.orange, thickness: 3),
+                    Divider(
+                        color: curentTheme.colorScheme.primary, thickness: 3),
                   ],
                 ),
               ),
@@ -123,7 +125,7 @@ class FavoriteScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigatorScreen(
         curentTheme: curentTheme,
-        currentScreen: 'favorite',
+        currentScreen: screen,
       ),
     );
   }

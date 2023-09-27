@@ -6,28 +6,51 @@ import 'package:meals_app/screens/bottom_navigator_screen.dart';
 class ItemScreen extends StatelessWidget {
   const ItemScreen({
     super.key,
-    this.name = '',
-    this.image = '',
+    this.name,
+    this.image,
     required this.curentTheme,
-    this.instructions = '',
-    this.ingredients = '',
-    this.category = Categories.meat,
-    this.id = 0,
+    this.instructions,
+    this.ingredients,
+    this.category,
+    this.id,
   });
   final ThemeData curentTheme;
-  final String name;
-  final String image;
-  final Categories category;
-  final String ingredients;
-  final String instructions;
-  final int id;
+  final String? name;
+  final String? image;
+  final Categories? category;
+  final String? ingredients;
+  final String? instructions;
+  final int? id;
 
   @override
   Widget build(BuildContext context) {
+    String screen = 'Item';
     void isFave() {
-      myItems[id].isItFavorite == false
-          ? myItems[id].isItFavorite = true
-          : myItems[id].isItFavorite = false;
+      myItems[id!].isItFavorite == false
+          ? myItems[id!].isItFavorite = true
+          : myItems[id!].isItFavorite = false;
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 2),
+          backgroundColor: const Color.fromARGB(255, 236, 158, 48),
+          showCloseIcon: true,
+          closeIconColor: Colors.white,
+          content: myItems[id!].isItFavorite == true
+              ? Text(
+                  '$name is my Favorite',
+                  style: curentTheme.textTheme.titleSmall!.copyWith(
+                    color: Colors.white,
+                  ),
+                )
+              : Text(
+                  '$name is Not my Favorite',
+                  style: curentTheme.textTheme.titleSmall!.copyWith(
+                    color: Colors.white,
+                  ),
+                ),
+        ),
+      );
     }
 
     return Scaffold(
@@ -35,7 +58,7 @@ class ItemScreen extends StatelessWidget {
       appBar: AppBar(
         titleTextStyle: curentTheme.appBarTheme.titleTextStyle,
         iconTheme: curentTheme.appBarTheme.actionsIconTheme,
-        title: const Text('Welcome'),
+        title: Text(screen),
         leading: IconButton(
           onPressed: () =>
               Navigator.popUntil(context, (route) => route.isFirst),
@@ -52,57 +75,53 @@ class ItemScreen extends StatelessWidget {
         padding: const EdgeInsets.only(top: 16, bottom: 16, left: 3, right: 3),
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(15),
             border: Border.all(
               width: 2,
-              color: Colors.orange,
+              color: curentTheme.colorScheme.primary,
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Container(
                   width: 400,
                   height: 200,
                   decoration: BoxDecoration(
-                    border: Border.all(width: 5, color: Colors.orange),
-                    borderRadius: BorderRadius.circular(55),
+                    border: Border.all(
+                        width: 3, color: curentTheme.colorScheme.primary),
+                    borderRadius: BorderRadius.circular(60),
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.network(image,
-                        width: 120, height: 100, fit: BoxFit.cover),
+                    borderRadius: BorderRadius.circular(55),
+                    child: Image.network(image!, fit: BoxFit.cover),
                   ),
                 ),
                 const SizedBox(height: 20),
                 Text(
                   textAlign: TextAlign.center,
                   'Name : $name',
-                  style: curentTheme.textTheme.titleLarge!
-                      .copyWith(color: Colors.orange),
+                  style: curentTheme.textTheme.titleLarge,
                 ),
                 Text(
                   textAlign: TextAlign.center,
-                  'Catigory : ${category.name}',
-                  style: curentTheme.textTheme.titleMedium!
-                      .copyWith(color: Colors.orange),
+                  'Catigory : ${category!.name}',
+                  style: curentTheme.textTheme.titleSmall,
                 ),
                 const SizedBox(height: 20),
-                const Divider(color: Colors.orange, thickness: 1),
+                Divider(color: curentTheme.colorScheme.primary, thickness: 1),
                 Text(
                   textAlign: TextAlign.center,
                   'Ingredients : $ingredients',
-                  style: curentTheme.textTheme.titleMedium!
-                      .copyWith(color: Colors.orange),
+                  style: curentTheme.textTheme.titleSmall,
                 ),
                 const SizedBox(height: 20),
-                const Divider(color: Colors.orange, thickness: 1),
+                Divider(color: curentTheme.colorScheme.primary, thickness: 1),
                 Text(
                   textAlign: TextAlign.center,
                   'Instructions : $instructions',
-                  style: curentTheme.textTheme.titleMedium!
-                      .copyWith(color: Colors.orange),
+                  style: curentTheme.textTheme.titleSmall,
                 ),
                 const SizedBox(height: 20),
               ],
@@ -112,7 +131,7 @@ class ItemScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigatorScreen(
         curentTheme: curentTheme,
-        currentScreen: 'item',
+        currentScreen: screen,
       ),
     );
   }

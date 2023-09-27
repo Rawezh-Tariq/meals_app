@@ -17,16 +17,13 @@ class BottomNavigatorScreen extends StatelessWidget {
 
     return BottomNavigationBar(
       backgroundColor: curentTheme.bottomNavigationBarTheme.backgroundColor,
-      unselectedItemColor:
-          curentTheme.bottomNavigationBarTheme.unselectedItemColor,
-      selectedItemColor: curentTheme.bottomNavigationBarTheme.selectedItemColor,
       currentIndex: currentIndex,
-      onTap: (currentIndex) {
-        currentIndex = currentIndex;
+      onTap: (newIndex) {
+        currentIndex = newIndex;
 
-        if (currentIndex == 0 && currentScreen != 'home') {
+        if (currentIndex == 0) {
           Navigator.popUntil(context, (route) => route.isFirst);
-        } else if (currentIndex == 1 && currentScreen != 'favorite') {
+        } else if (currentIndex == 1 && currentScreen != 'Favorites') {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             List<Item> myFavorites = myItems
                 .where((element) => element.isItFavorite == true)

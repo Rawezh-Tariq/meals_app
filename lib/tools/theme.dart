@@ -19,15 +19,15 @@ ThemeData myDarkTheme = ThemeData(
   textTheme: TextTheme(
     titleLarge: GoogleFonts.lobster(
       fontSize: 50,
-      color: Colors.white,
+      color: Colors.orange,
     ),
     titleMedium: GoogleFonts.lobster(
-      fontSize: 26,
-      color: Colors.white,
+      fontSize: 34,
+      color: Colors.orange,
     ),
     titleSmall: GoogleFonts.lobster(
-      fontSize: 18,
-      color: Colors.white,
+      fontSize: 24,
+      color: Colors.orange,
     ),
   ),
   drawerTheme: const DrawerThemeData(
@@ -44,7 +44,6 @@ ThemeData myDarkTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.black,
     unselectedItemColor: Colors.orange,
-    selectedItemColor: Colors.orange,
   ),
 );
 
@@ -69,11 +68,11 @@ ThemeData myLightTheme = ThemeData(
       color: Colors.orange,
     ),
     titleMedium: GoogleFonts.lobster(
-      fontSize: 26,
+      fontSize: 34,
       color: Colors.orange,
     ),
     titleSmall: GoogleFonts.lobster(
-      fontSize: 18,
+      fontSize: 24,
       color: Colors.orange,
     ),
   ),
@@ -90,6 +89,5 @@ ThemeData myLightTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
     unselectedItemColor: Colors.orange,
-    selectedItemColor: Colors.orange,
   ),
 );

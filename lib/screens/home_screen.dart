@@ -8,15 +8,16 @@ import 'package:meals_app/tools/theme.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
-    this.currentScreen = '',
+    this.currentScreen,
   });
-  final String currentScreen;
+  final String? currentScreen;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String screen = 'Home';
   ThemeData curentTheme = myLightTheme;
   void changeTheme() {
     setState(() {
@@ -36,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         titleTextStyle: curentTheme.appBarTheme.titleTextStyle,
         iconTheme: curentTheme.appBarTheme.actionsIconTheme,
-        title: const Text(
-          'welcome',
+        title: Text(
+          screen,
         ),
         actions: [
           IconButton(
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigatorScreen(
         curentTheme: curentTheme,
-        currentScreen: 'home',
+        currentScreen: screen,
       ),
     );
   }
