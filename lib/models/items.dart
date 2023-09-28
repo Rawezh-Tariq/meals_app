@@ -1,4 +1,4 @@
-enum Categories { meat, fastfood, vegtable, swets, drinks }
+enum Categories { grill, fastfood, vegtable, swets, drinks }
 
 class Item {
   String name;

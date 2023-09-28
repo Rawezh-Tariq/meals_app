@@ -74,59 +74,48 @@ class ItemScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 16, bottom: 16, left: 3, right: 3),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(
-              width: 2,
-              color: curentTheme.colorScheme.primary,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Container(
-                  width: 400,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 3, color: curentTheme.colorScheme.primary),
-                    borderRadius: BorderRadius.circular(60),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(55),
-                    child: Image.network(image!, fit: BoxFit.cover),
-                  ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Container(
+                width: 400,
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60),
                 ),
-                const SizedBox(height: 20),
-                Text(
-                  textAlign: TextAlign.center,
-                  'Name : $name',
-                  style: curentTheme.textTheme.titleLarge,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(55),
+                  child: Image.network(image!, fit: BoxFit.cover),
                 ),
-                Text(
-                  textAlign: TextAlign.center,
-                  'Catigory : ${category!.name}',
-                  style: curentTheme.textTheme.titleSmall,
-                ),
-                const SizedBox(height: 20),
-                Divider(color: curentTheme.colorScheme.primary, thickness: 1),
-                Text(
-                  textAlign: TextAlign.center,
-                  'Ingredients : $ingredients',
-                  style: curentTheme.textTheme.titleSmall,
-                ),
-                const SizedBox(height: 20),
-                Divider(color: curentTheme.colorScheme.primary, thickness: 1),
-                Text(
-                  textAlign: TextAlign.center,
-                  'Instructions : $instructions',
-                  style: curentTheme.textTheme.titleSmall,
-                ),
-                const SizedBox(height: 20),
-              ],
-            ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                textAlign: TextAlign.center,
+                'Name : $name',
+                style: curentTheme.textTheme.titleLarge,
+              ),
+              Text(
+                textAlign: TextAlign.center,
+                'Catigory : ${category!.name}',
+                style: curentTheme.textTheme.titleSmall,
+              ),
+              const SizedBox(height: 20),
+              Divider(color: curentTheme.colorScheme.primary, thickness: 1),
+              Text(
+                textAlign: TextAlign.center,
+                'Ingredients : $ingredients',
+                style: curentTheme.textTheme.titleSmall,
+              ),
+              const SizedBox(height: 20),
+              Divider(color: curentTheme.colorScheme.primary, thickness: 1),
+              Text(
+                textAlign: TextAlign.center,
+                'Instructions : $instructions',
+                style: curentTheme.textTheme.titleSmall,
+              ),
+              const SizedBox(height: 20),
+            ],
           ),
         ),
       ),

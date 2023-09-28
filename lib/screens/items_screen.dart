@@ -17,7 +17,7 @@ class ItemsScreen extends StatelessWidget {
         children: [
           for (int i = 0; i < Categories.values.length; i++)
             SizedBox(
-              height: 260,
+              height: 280,
               width: double.infinity,
               child: Column(
                 children: [
@@ -68,8 +68,9 @@ class ItemsScreen extends StatelessWidget {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 3,
-                                        color: curentTheme.colorScheme.primary),
+                                      width: 2,
+                                      color: curentTheme.colorScheme.primary,
+                                    ),
                                     borderRadius: BorderRadius.circular(55),
                                   ),
                                   child: ClipRRect(
@@ -83,9 +84,14 @@ class ItemsScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Text(
-                                myFilteredItems[index].name,
-                                style: curentTheme.textTheme.titleSmall,
+                              SizedBox(
+                                width: 100,
+                                child: Text(
+                                  myFilteredItems[index].name,
+                                  style: curentTheme.textTheme.titleSmall,
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ],
                           ),

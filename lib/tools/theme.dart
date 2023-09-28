@@ -26,7 +26,7 @@ ThemeData myDarkTheme = ThemeData(
       color: Colors.orange,
     ),
     titleSmall: GoogleFonts.lobster(
-      fontSize: 24,
+      fontSize: 20,
       color: Colors.orange,
     ),
   ),
@@ -72,7 +72,7 @@ ThemeData myLightTheme = ThemeData(
       color: Colors.orange,
     ),
     titleSmall: GoogleFonts.lobster(
-      fontSize: 24,
+      fontSize: 20,
       color: Colors.orange,
     ),
   ),
