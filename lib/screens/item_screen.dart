@@ -93,7 +93,7 @@ class ItemScreen extends StatelessWidget {
               Text(
                 textAlign: TextAlign.center,
                 'Name : $name',
-                style: curentTheme.textTheme.titleLarge,
+                style: curentTheme.textTheme.titleMedium,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -103,15 +103,23 @@ class ItemScreen extends StatelessWidget {
               const SizedBox(height: 20),
               Divider(color: curentTheme.colorScheme.primary, thickness: 1),
               Text(
+                'Ingredients',
+                style: curentTheme.textTheme.titleMedium,
+              ),
+              Text(
                 textAlign: TextAlign.center,
-                'Ingredients : $ingredients',
+                ' $ingredients',
                 style: curentTheme.textTheme.titleSmall,
               ),
               const SizedBox(height: 20),
               Divider(color: curentTheme.colorScheme.primary, thickness: 1),
               Text(
+                'Instructions',
+                style: curentTheme.textTheme.titleMedium,
+              ),
+              Text(
                 textAlign: TextAlign.center,
-                'Instructions : $instructions',
+                '$instructions',
                 style: curentTheme.textTheme.titleSmall,
               ),
               const SizedBox(height: 20),
